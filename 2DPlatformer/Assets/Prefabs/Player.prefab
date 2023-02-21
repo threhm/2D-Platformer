@@ -150,12 +150,13 @@ MonoBehaviour:
   jumpHeight: 40
   maxSpeed: 15
   horizontalAcceleration: 1
-  wallJumpHeight: 30
+  wallJumpHeight: 20
   wallJumpPush: 20
   doubleJump: 0
   groundMask:
     serializedVersion: 2
     m_Bits: 64
+  reverseGrav: 0
   rb2d: {fileID: 0}
 --- !u!114 &-3460598994580997356
 MonoBehaviour:
