@@ -5,7 +5,7 @@ using UnityEngine;
 public class Spike : MonoBehaviour
 {
     private PolygonCollider2D pc;
-    public bool color = false;
+
     void Start()
     {
         pc = gameObject.GetComponent<PolygonCollider2D>();
@@ -16,8 +16,9 @@ public class Spike : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other) {
         if(other.gameObject.CompareTag("Player")) {
             PlayerRespawn pr = other.GetComponent<PlayerRespawn>();
+            
         
-            if (pr != null && color == true)
+            if (pr != null && OrbsStatus.getStatus("spike"))
             {
                 pr.kill();
             }
@@ -28,4 +29,7 @@ public class Spike : MonoBehaviour
     {
         
     }
+
+   
 }
+

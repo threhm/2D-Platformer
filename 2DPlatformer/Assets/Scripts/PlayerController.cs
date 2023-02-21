@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
 
     public float wallJumpPush;
 
+
     public bool doubleJump;
 
     public LayerMask groundMask;
@@ -18,14 +19,18 @@ public class PlayerController : MonoBehaviour
 
     public bool reverseGrav;
 
+    public GameObject spike;
+
 
     public Rigidbody2D rb2d;
     // Start is called before the first frame update
     void Start()
     {
         rb2d = gameObject.GetComponent<Rigidbody2D>();
+        
         doubleJump = true;
         reverseGrav = false;
+
     }
 
     // Update is called once per frame
@@ -111,9 +116,12 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-       
+
 
     }
+
+    
+
 
 
 }
