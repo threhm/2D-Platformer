@@ -6,6 +6,7 @@ public static class OrbsStatus
 {
     private static bool _blueOrbsCollected = false;
     private static bool _redOrbsCollected = false;
+    private static bool _greenOrbsCollected = false;
 
     public static bool getStatus(string orbColor)
     {
@@ -18,6 +19,10 @@ public static class OrbsStatus
         {
             targetOrb = _redOrbsCollected;
         }
+        else if (orbColor == "green")
+        {
+            targetOrb = _greenOrbsCollected;
+        }
 
         return targetOrb;
     }
@@ -27,9 +32,14 @@ public static class OrbsStatus
         if (orbColor == "blue")
         {
             _blueOrbsCollected = true;
-        } else if (orbColor == "red")
+        }
+        else if (orbColor == "red")
         {
             _redOrbsCollected = true;
+        }
+        else if (orbColor == "green")
+        {
+            _greenOrbsCollected = true;
         }
     }
 }

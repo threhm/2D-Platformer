@@ -517,23 +517,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1195925159492875000, guid: c99becaed18c89841adb10afb5ac93e2, type: 3}
   m_PrefabInstance: {fileID: 335154036}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1411538054 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8596131722715809589, guid: 65c3594f80e2d47ef9f1e287351ae2c9, type: 3}
-  m_PrefabInstance: {fileID: 8596131721401482771}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1411538059
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1411538054}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 608cea5783b494e3f8d80c415c15dece, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1711060268
 GameObject:
   m_ObjectHideFlags: 0
@@ -832,17 +815,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 8596131722715809588, guid: 65c3594f80e2d47ef9f1e287351ae2c9, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
     - target: {fileID: 8596131722715809589, guid: 65c3594f80e2d47ef9f1e287351ae2c9, type: 3}
       propertyPath: m_Name
       value: BlueOrb
-      objectReference: {fileID: 0}
-    - target: {fileID: 8596131722715809589, guid: 65c3594f80e2d47ef9f1e287351ae2c9, type: 3}
-      propertyPath: m_TagString
-      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 8596131722715809595, guid: 65c3594f80e2d47ef9f1e287351ae2c9, type: 3}
       propertyPath: m_RootOrder
@@ -888,6 +863,5 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 8596131722715809593, guid: 65c3594f80e2d47ef9f1e287351ae2c9, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 65c3594f80e2d47ef9f1e287351ae2c9, type: 3}
