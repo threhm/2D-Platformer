@@ -17,7 +17,6 @@ public class Spike : MonoBehaviour
         if(other.gameObject.CompareTag("Player")) {
             PlayerRespawn pr = other.GetComponent<PlayerRespawn>();
             
-        
             if (pr != null && OrbsStatus.getStatus("spike"))
             {
                 pr.kill();

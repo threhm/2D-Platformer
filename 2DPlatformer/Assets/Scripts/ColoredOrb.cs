@@ -6,6 +6,6 @@ public class ColoredOrb : OrbsMechanics
 {
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        base.orbOnCollision(collision, "Spike");
+        base.orbOnCollision(collision, "spike");
     }
 }
