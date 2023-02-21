@@ -51,16 +51,6 @@ public class HorizontalWallMovement : MonoBehaviour
     }
 
     void OnCollisionEnter2D(Collision2D other) {
-        Debug.Log("Hit");
-        if(other.gameObject.CompareTag("Player")) {
-            //Rigidbody2D playerRB = other.gameObject.GetComponent<Rigidbody2D>();
-            player = other.gameObject;
-            movePlayer = true;
-        }
-    }
-
-    void OnCollisionStay2D(Collision2D other) {
-        //Debug.Log("Hit");
         if(other.gameObject.CompareTag("Player")) {
             player = other.gameObject;
             movePlayer = true;
@@ -68,9 +58,7 @@ public class HorizontalWallMovement : MonoBehaviour
     }
 
     void OnCollisionExit2D(Collision2D other) {
-        //Debug.Log("Hit");
         if(other.gameObject.CompareTag("Player")) {
-            //player = other.gameObject;
             movePlayer = false;
         }
     }
