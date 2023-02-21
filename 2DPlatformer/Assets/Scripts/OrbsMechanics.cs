@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BlueOrbs : MonoBehaviour
+public class OrbsMechanics : MonoBehaviour
 {
-    private void OnCollisionEnter2D(Collision2D collision)
+    public void orbOnCollision(Collision2D collision, string OrbColor)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            BlueOrbsStatus.blueOrbsCollected = true;
+            OrbsStatus.active(OrbColor);
         }
 
         Destroy(gameObject);

@@ -10,12 +10,15 @@ public class Water : MonoBehaviour
     {
         mySpriteRenderer = GetComponent<SpriteRenderer>();
         boxCollider = gameObject.GetComponent<BoxCollider2D>();
-        boxCollider.isTrigger = true;
+        boxCollider.isTrigger = false;
+        boxCollider.enabled = false;
     }
 
     void Update()
     {
-        mySpriteRenderer.enabled = BlueOrbsStatus.blueOrbsCollected;
+        mySpriteRenderer.enabled = OrbsStatus.getStatus("blue");
+        boxCollider.isTrigger = OrbsStatus.getStatus("blue");
+        boxCollider.enabled = OrbsStatus.getStatus("blue");
     }
 
     void OnTriggerEnter2D(Collider2D other)
