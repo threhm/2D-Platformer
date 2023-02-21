@@ -148,10 +148,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpHeight: 40
-  maxSpeed: 0
-  horizontalAcceleration: 0
+  maxSpeed: 15
+  horizontalAcceleration: 1
   wallJumpHeight: 30
-  wallJumpPush: 0
+  wallJumpPush: 20
   doubleJump: 0
   groundMask:
     serializedVersion: 2
@@ -169,3 +169,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 002b2da7e79486e4ca82ce5e0fa2a2fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  respawnPoint: {fileID: 0}
