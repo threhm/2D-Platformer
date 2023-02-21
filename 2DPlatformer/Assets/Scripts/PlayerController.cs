@@ -15,12 +15,9 @@ public class PlayerController : MonoBehaviour
 
     public LayerMask groundMask;
 
-<<<<<<< Updated upstream
-    public bool reverseGrav;
-=======
-    public GameObject Key;
 
->>>>>>> Stashed changes
+    public bool reverseGrav;
+
 
     public Rigidbody2D rb2d;
     // Start is called before the first frame update
@@ -119,13 +116,4 @@ public class PlayerController : MonoBehaviour
     }
 
 
-    //when the player collides with the orb
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Orb"))
-        {
-            Vector2 keyPlacement = new Vector2(1.36f, -2.82f);
-            Instantiate(Key, keyPlacement, Quaternion.identity);
-        }
-    }
 }
