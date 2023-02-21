@@ -5,7 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - Platform
+<<<<<<< Updated upstream
   - Blue Orbs
+=======
+  - Orb
+>>>>>>> Stashed changes
   layers:
   - Default
   - TransparentFX
