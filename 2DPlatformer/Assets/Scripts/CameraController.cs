@@ -5,24 +5,22 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     public GameObject player;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
+    public int width;
+    public int height;
+
     void Update()
     {
         //Control x movement
         int playerX = (int) player.transform.position.x;
-        playerX = playerX / 64;
-        int camX = (playerX * 64) + 32;
+        playerX = playerX / width;
+        int camX = (playerX * width) + width/2;
         transform.position = new Vector3( camX, transform.position.y, transform.position.z);
 
+        //Control y movement
         int playerY = (int) player.transform.position.y;
-        playerY = playerY / 40;
-        int camY = (playerY * 40) + 20;
+        playerY = playerY / height;
+        int camY = (playerY * height) + height/2;
         transform.position = new Vector3( transform.position.x, camY, transform.position.z);
     }
 }
