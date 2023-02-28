@@ -1,16 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements.Experimental;
 
 public class AnimateWalk : MonoBehaviour
 {
-     private SpriteRenderer sr;
+    private SpriteRenderer sr;
     private int frameIndex;
     public Sprite[] frames;
     public float fps = 3;
     private float sliderTimer;
-
+    //need velocities to tell when to change animations
     public Sprite standingSprite;
+    public Sprite jumpSprite;
+    public Sprite wallSprite;
+    public Sprite fallSprite;
 
     void Start()
     {
@@ -19,32 +24,34 @@ public class AnimateWalk : MonoBehaviour
         frameIndex = 0;
     }
 
-    void FixedUpdate()
+    public void playerAnim(int dFacing, bool grounded, bool walled, float airtime, bool notMoving)
     {
-        if(Input.GetKey(KeyCode.LeftArrow)) {
-            sr.flipX = true;
-            sliderTimer -= Time.deltaTime;
-            if (sliderTimer <= 0)
-            {
-                frameIndex++;
-                if (frameIndex >= frames.Length) { frameIndex = 0; }
+        sr.flipX = dFacing < 0;
 
-                sliderTimer = (1f / fps);
-                sr.sprite = frames[frameIndex];
-            }
-        } else if (Input.GetKey(KeyCode.RightArrow)) {
-            sr.flipX = false;
-            sliderTimer -= Time.deltaTime;
-            if (sliderTimer <= 0)
-            {
-                frameIndex++;
-                if (frameIndex >= frames.Length) { frameIndex = 0; }
+        if (grounded) {
+            if (!notMoving) {
+                //sr.flipX = true;
+                sliderTimer -= Time.deltaTime;
+                if (sliderTimer <= 0)
+                {
+                    frameIndex++;
+                    if (frameIndex >= frames.Length) { frameIndex = 0; }
 
-                sliderTimer = (1f / fps);
-                sr.sprite = frames[frameIndex];
+                    sliderTimer = (1f / fps);
+                    sr.sprite = frames[frameIndex];
+                }
             }
-        } else {
-            sr.sprite = standingSprite;
+            else { sr.sprite = standingSprite;}
+        } else{
+            if (!walled)
+            {
+                if (airtime > 0) { sr.sprite = jumpSprite; }
+                if (airtime < 0) { sr.sprite = fallSprite; }
+            }
+            else
+            {
+                sr.sprite = wallSprite;
+            }
         }
     }
 }
