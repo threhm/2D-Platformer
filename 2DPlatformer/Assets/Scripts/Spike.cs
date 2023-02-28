@@ -31,6 +31,9 @@ public class Spike : MonoBehaviour
         if (OrbsStatus.getStatus("spike"))
         {
             
+        } else
+        {
+
         }
     }
 

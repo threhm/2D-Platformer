@@ -6,37 +6,35 @@ using UnityEngine;
 
 public class Leaf : MonoBehaviour
 {
-    //bool falling = false;
-    
-    
-    public float downForce = 0.01f;
-    bool firstTime = true;
     SpriteRenderer sp;
     Rigidbody2D rg;
     PolygonCollider2D pc;
 
+    public float fadingSpeed = 1.5f;
+    public float fallingTimer = 2f;
 
-    float fadingTimer = 2f;
-    float fallingTimer = 2f;
     public GameObject player;
     BoxCollider2D playerCollider;
 
+    public float downForce = 0.01f;
     bool fadingStarts = false;
+    bool firstTime = true;
 
     private List<GameObject> leaves = new List<GameObject>();
     private List<SpriteRenderer> leafSprites = new List<SpriteRenderer>();
+
     // Start is called before the first frame update
     void Start()
     {
         rg = GetComponent<Rigidbody2D>();
-
         pc = GetComponent<PolygonCollider2D>();
         pc.isTrigger = true;
 
         sp = GetComponent<SpriteRenderer>();
 
         playerCollider = player.gameObject.GetComponent<BoxCollider2D>();
-        
+
+        // Disable parent leaf's rigidBody
         rg.bodyType = RigidbodyType2D.Static;
 
         // Collecting children gameObjects/components and initializing children rigidBody
@@ -54,31 +52,47 @@ public class Leaf : MonoBehaviour
 
     private void Update()
     {
+        // Destory the leaves once they fade away
+        if (sp.color.a <= 0.2f)
+        {
+            Destroy(gameObject);
+        }
+
+        // Checking if the children leaves collide with the player or not.
+        // If so and the green orb is collected, start the leaves mechanics
         foreach (GameObject leaf in leaves)
         {
-            if (leaf.gameObject.GetComponent<PolygonCollider2D>().IsTouching(playerCollider) && firstTime)
+            if (OrbsStatus.getStatus("green") &&
+                leaf.gameObject.GetComponent<PolygonCollider2D>().IsTouching(playerCollider) &&
+                firstTime)
             {
                 firstTime = false;
                 StartCoroutine(LeafFalling());
             }
         }
 
+        // If the leaves start to fall, makes the leaves fade away
         if (fadingStarts)
         {
-            FadingEffects(fadingTimer, sp);
+            FadingEffects(fadingSpeed, sp);
             foreach (SpriteRenderer childSp in leafSprites)
             {
-                FadingEffects(fadingTimer, childSp);
+                FadingEffects(fadingSpeed, childSp);
             }
         }
     }
 
+    /**
+     * Create a delay before the leaves start to fall apart
+     */
     private IEnumerator LeafFalling()
     {
         yield return new WaitForSeconds(fallingTimer);
+
+        // When reached, start the fading visual effect
         fadingStarts = true;
 
-        Destroy(gameObject, fadingTimer);
+        // When reached, create the falling physics
         rgUpdate(rg);
         foreach (GameObject leaf in leaves)
         {
@@ -87,6 +101,10 @@ public class Leaf : MonoBehaviour
         
     }
 
+    /**
+     * Enable rigidbody and give it gravity/extra force to have the falling effects
+     * @param {rigidbody} the rigidbody to set
+     */
     private void rgUpdate(Rigidbody2D rigidbody)
     {
         rigidbody.bodyType = RigidbodyType2D.Dynamic;
@@ -95,6 +113,11 @@ public class Leaf : MonoBehaviour
         rigidbody.gravityScale = 1;
     }
 
+    /**
+     * Create the fading away visual effect
+     * @param {fadingTime} the speed objects are fading
+     * @param {targetSpriteRenderer} the target sprite to apply the fading effect to
+     */
     private void FadingEffects(float fadingTime, SpriteRenderer targetSpriteRenderer)
     {
         Color color = targetSpriteRenderer.color;
@@ -104,7 +127,9 @@ public class Leaf : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.gameObject.CompareTag("Player") && firstTime)
+        // If collide with the player and the green orb is collected,
+        // start the leaves mechanics
+        if (OrbsStatus.getStatus("green") && col.gameObject.CompareTag("Player") && firstTime)
         {
             firstTime = false;
             StartCoroutine(LeafFalling());
