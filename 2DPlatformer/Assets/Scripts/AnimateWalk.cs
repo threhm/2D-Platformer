@@ -42,15 +42,17 @@ public class AnimateWalk : MonoBehaviour
                 }
             }
             else { sr.sprite = standingSprite;}
-        } else{
-            if (!walled)
+        } 
+        else{
+            if (walled)
             {
-                if (airtime > 0) { sr.sprite = jumpSprite; }
-                if (airtime < 0) { sr.sprite = fallSprite; }
+                sr.flipX = !(dFacing < 0);
+                sr.sprite = wallSprite;
             }
             else
             {
-                sr.sprite = wallSprite;
+                if (airtime > 0.1) { sr.sprite = jumpSprite; }
+                if (airtime < 0.1) { sr.sprite = fallSprite; }
             }
         }
     }
