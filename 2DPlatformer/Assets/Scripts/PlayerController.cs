@@ -45,11 +45,11 @@ public class PlayerController : MonoBehaviour
         Vector2 position1 = new Vector2(transform.position.x + 0.45f, transform.position.y);
         Vector2 position2 = new Vector2(transform.position.x - 0.45f, transform.position.y);
         if(!reverseGrav) {
-            if (Physics2D.Raycast(position1, Vector3.down, 1.1f, groundMask) || Physics2D.Raycast(position2, Vector3.down, 1.1f, groundMask)) {
+            if (Physics2D.Raycast(position1, Vector3.down, 1.5f, groundMask) || Physics2D.Raycast(position2, Vector3.down, 1.5f, groundMask)) {
                 onGround = true;
             }
         } else {
-            if (Physics2D.Raycast(position1, Vector3.up, 1.1f, groundMask) || Physics2D.Raycast(position2, Vector3.up, 1.1f, groundMask)) {
+            if (Physics2D.Raycast(position1, Vector3.up, 1.5f, groundMask) || Physics2D.Raycast(position2, Vector3.up, 1.5f, groundMask)) {
                 onGround = true;
             }
         }
@@ -96,7 +96,7 @@ public class PlayerController : MonoBehaviour
             Vector2 position1 = new Vector2(transform.position.x + 0.4f, transform.position.y);
             Vector2 position2 = new Vector2(transform.position.x - 0.4f, transform.position.y);
             if(!reverseGrav) {
-                if (Physics2D.Raycast(position1, Vector3.down, 1.1f, groundMask) || Physics2D.Raycast(position2, Vector3.down, 1.1f, groundMask)) { 
+                if (Physics2D.Raycast(position1, Vector3.down, 1.5f, groundMask) || Physics2D.Raycast(position2, Vector3.down, 1.5f, groundMask)) { 
                     rb2d.AddForce(new Vector3(0f, jumpHeight, 0f), ForceMode2D.Impulse);
                 } else {
                     //Jump if touching a wall. This is done in an else statement because the height from jumping off the ground should take priority
@@ -104,15 +104,15 @@ public class PlayerController : MonoBehaviour
                     Vector2 position4 = new Vector2(transform.position.x, transform.position.y - 1);
 
                     //Check if jumping off of a wall on the left
-                    if (Physics2D.Raycast(position3, Vector3.left, 1.1f, groundMask) || Physics2D.Raycast(position4, Vector3.left, 1.1f, groundMask)) {
+                    if (Physics2D.Raycast(position3, Vector3.left, 1.5f, groundMask) || Physics2D.Raycast(position4, Vector3.left, 1.5f, groundMask)) {
                         rb2d.AddForce(new Vector3(wallJumpPush, wallJumpHeight, 0f), ForceMode2D.Impulse);
                     } // Otherwise check if we are jumping off a wall on the right
-                    else if (Physics2D.Raycast(position3, Vector3.right, 1.1f, groundMask) || Physics2D.Raycast(position4, Vector3.right, 1.1f, groundMask)) {
+                    else if (Physics2D.Raycast(position3, Vector3.right, 1.5f, groundMask) || Physics2D.Raycast(position4, Vector3.right, 1.5f, groundMask)) {
                         rb2d.AddForce(new Vector3(-wallJumpPush, wallJumpHeight, 0f), ForceMode2D.Impulse);
                     }
                 }
             } else {
-                if (Physics2D.Raycast(position1, Vector3.up, 1.1f, groundMask) || Physics2D.Raycast(position2, Vector3.up, 1.1f, groundMask)) { 
+                if (Physics2D.Raycast(position1, Vector3.up, 1.5f, groundMask) || Physics2D.Raycast(position2, Vector3.up, 1.5f, groundMask)) { 
                     rb2d.AddForce(new Vector3(0f, -jumpHeight, 0f), ForceMode2D.Impulse);
                 } else {
                     //Jump if touching a wall. This is done in an else statement because the height from jumping off the ground should take priority
@@ -120,10 +120,10 @@ public class PlayerController : MonoBehaviour
                     Vector2 position4 = new Vector2(transform.position.x, transform.position.y - 1);
 
                     //Check if jumping off of a wall on the left
-                    if (Physics2D.Raycast(position3, Vector3.left, 1.1f, groundMask) || Physics2D.Raycast(position4, Vector3.left, 1.1f, groundMask)) {
+                    if (Physics2D.Raycast(position3, Vector3.left, 1.5f, groundMask) || Physics2D.Raycast(position4, Vector3.left, 1.5f, groundMask)) {
                         rb2d.AddForce(new Vector3(wallJumpPush, -wallJumpHeight, 0f), ForceMode2D.Impulse);
                     } // Otherwise check if we are jumping off a wall on the right
-                    else if (Physics2D.Raycast(position3, Vector3.right, 1.1f, groundMask) || Physics2D.Raycast(position4, Vector3.right, 1.1f, groundMask)) {
+                    else if (Physics2D.Raycast(position3, Vector3.right, 1.5f, groundMask) || Physics2D.Raycast(position4, Vector3.right, 1.5f, groundMask)) {
                         rb2d.AddForce(new Vector3(-wallJumpPush, -wallJumpHeight, 0f), ForceMode2D.Impulse);
                     }
                 }
@@ -132,8 +132,8 @@ public class PlayerController : MonoBehaviour
 
         Vector2 wallCheck3 = new Vector2(transform.position.x, transform.position.y + 1);
         Vector2 wallCheck4 = new Vector2(transform.position.x, transform.position.y - 1);
-        if (Physics2D.Raycast(wallCheck3, Vector3.left, 1.1f, groundMask) || Physics2D.Raycast(wallCheck4, Vector3.left, 1.1f, groundMask) ||
-            Physics2D.Raycast(wallCheck3, Vector3.right, 1.1f, groundMask) || Physics2D.Raycast(wallCheck4, Vector3.right, 1.1f, groundMask)) {onWall = true;}
+        if (Physics2D.Raycast(wallCheck3, Vector3.left, 1.5f, groundMask) || Physics2D.Raycast(wallCheck4, Vector3.left, 1.5f, groundMask) ||
+            Physics2D.Raycast(wallCheck3, Vector3.right, 1.5f, groundMask) || Physics2D.Raycast(wallCheck4, Vector3.right, 1.5f, groundMask)) {onWall = true;}
         else {onWall= false;}
 
             spriteAnim.playerAnim(facing, onGround, onWall, rb2d.velocity.y, rb2d.velocity.x == 0);
