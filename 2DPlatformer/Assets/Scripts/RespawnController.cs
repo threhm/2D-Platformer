@@ -10,6 +10,8 @@ public class RespawnController : MonoBehaviour
     public Sprite inactive;
 
     public bool isActive;
+    private AudioSource source;
+    public AudioClip clip;
 
     private RespawnController otherRespawn;
     // Start is called before the first frame update
@@ -19,6 +21,7 @@ public class RespawnController : MonoBehaviour
         sr = gameObject.GetComponent<SpriteRenderer>();
         bc2D.isTrigger = true;
         isActive = false;
+        source = GetComponent<AudioSource>();
         
     }
 
@@ -28,6 +31,7 @@ public class RespawnController : MonoBehaviour
             //If the player has yet to touch a respawn point set this one to be the currently active one
             if(pr.respawnPoint == null) {
                 pr.respawnPoint = this.gameObject;
+                source.PlayOneShot(clip);
                 SwitchSprite();
             } else {
                 //Check to see if the currently active respawn point is this point, if it is do nothing
@@ -36,6 +40,7 @@ public class RespawnController : MonoBehaviour
                 if(otherRespawn.gameObject != this.gameObject) {
                     otherRespawn.SwitchSprite();
                     pr.respawnPoint = this.gameObject;
+                    source.PlayOneShot(clip);
                     SwitchSprite();
                 }
             }
