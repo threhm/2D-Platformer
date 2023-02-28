@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 27935245283922898}
   - component: {fileID: -3460598994580997356}
   - component: {fileID: -4826409817976342793}
+  - component: {fileID: 322194747}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -50,7 +51,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.01892066, y: 0.0047302246}
+  m_Offset: {x: 0.010272384, y: 0.2382741}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -61,7 +62,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.96215856, y: 2.863687}
+  m_Size: {x: 1.0205448, y: 2.3965993}
   m_EdgeRadius: 0
 --- !u!50 &27935245283922901
 Rigidbody2D:
@@ -106,7 +107,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   reverseGrav: 0
-  spike: {fileID: 0}
+  spike: {fileID: 2642186902902885851, guid: 2efc2dbdd34171546b3b18be71badab7, type: 3}
   rb2d: {fileID: 0}
 --- !u!114 &-3460598994580997356
 MonoBehaviour:
@@ -173,6 +174,32 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &322194747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 27935245283922899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d459e6470db291240adc0c10f8da1ec2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  frames:
+  - {fileID: 21300000, guid: 7192f10464668564cb8ea9a2646c13a7, type: 3}
+  - {fileID: 21300000, guid: 065de10287ae8f6488950a206f8c6878, type: 3}
+  - {fileID: 21300000, guid: 719c010dcce28e449b3e9a3d240ed5a6, type: 3}
+  - {fileID: 21300000, guid: 2e78efc0648080448833e1a057af1998, type: 3}
+  - {fileID: 21300000, guid: cc23b4ab274e1294bad2b4f83b7690ac, type: 3}
+  - {fileID: 21300000, guid: 2e78efc0648080448833e1a057af1998, type: 3}
+  - {fileID: 21300000, guid: 719c010dcce28e449b3e9a3d240ed5a6, type: 3}
+  - {fileID: 21300000, guid: 065de10287ae8f6488950a206f8c6878, type: 3}
+  fps: 8
+  standingSprite: {fileID: 21300000, guid: 42590010c7397d24b97e974491c7fceb, type: 3}
+  jumpSprite: {fileID: 21300000, guid: b71e0a8908d4f2c43802ffa9c073e793, type: 3}
+  wallSprite: {fileID: 21300000, guid: 90cd437d4456df34682dda6e2f50401c, type: 3}
+  fallSprite: {fileID: 21300000, guid: 09a4eafdde9604c44b76bcf3d16c84b0, type: 3}
 --- !u!1 &7633517946769292306
 GameObject:
   m_ObjectHideFlags: 0

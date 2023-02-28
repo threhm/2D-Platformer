@@ -5077,10 +5077,6 @@ PrefabInstance:
       propertyPath: respawnPoint
       value: 
       objectReference: {fileID: 1133323316}
-    - target: {fileID: 27935245283922898, guid: 865352a8907c544498bea6762b5b8769, type: 3}
-      propertyPath: spike
-      value: 
-      objectReference: {fileID: 2642186902902885851, guid: 2efc2dbdd34171546b3b18be71badab7, type: 3}
     - target: {fileID: 27935245283922899, guid: 865352a8907c544498bea6762b5b8769, type: 3}
       propertyPath: m_Name
       value: Player
@@ -5091,11 +5087,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 27935245283922902, guid: 865352a8907c544498bea6762b5b8769, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.05
+      value: 3.99
       objectReference: {fileID: 0}
     - target: {fileID: 27935245283922902, guid: 865352a8907c544498bea6762b5b8769, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.64
+      value: 1.99
       objectReference: {fileID: 0}
     - target: {fileID: 27935245283922902, guid: 865352a8907c544498bea6762b5b8769, type: 3}
       propertyPath: m_LocalPosition.z
