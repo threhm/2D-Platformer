@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
 
     public float wallJumpPush;
 
-
+    
     public bool doubleJump;
 
     public LayerMask groundMask;
