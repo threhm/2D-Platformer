@@ -5,7 +5,9 @@ using UnityEngine;
 public class Spike : MonoBehaviour
 {
     private PolygonCollider2D pc;
-    public SpriteRenderer mySpriteRenderer;
+    SpriteRenderer mySpriteRenderer;
+    public Sprite deactiveSpike;
+    public Sprite activeSpike;
 
     void Start()
     {
@@ -30,10 +32,11 @@ public class Spike : MonoBehaviour
     {
         if (OrbsStatus.getStatus("spike"))
         {
-            
-        } else
+            mySpriteRenderer.sprite = activeSpike;
+        }
+        else
         {
-
+            mySpriteRenderer.sprite = deactiveSpike;
         }
     }
 
