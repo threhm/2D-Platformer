@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 214035917}
   m_Layer: 6
   m_Name: Isometric Diamond (11)
-  m_TagString: Untagged
+  m_TagString: Leaf
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -229,7 +229,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Constraints: 0
 --- !u!60 &214035917
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -316,6 +316,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2efc2dbdd34171546b3b18be71badab7, type: 3}
+--- !u!1 &231946248 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 27935245283922899, guid: 865352a8907c544498bea6762b5b8769, type: 3}
+  m_PrefabInstance: {fileID: 983734296}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &431475813
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -387,7 +392,7 @@ GameObject:
   - component: {fileID: 474935158}
   m_Layer: 6
   m_Name: Isometric Diamond (7)
-  m_TagString: Untagged
+  m_TagString: Leaf
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -479,7 +484,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Constraints: 0
 --- !u!60 &474935158
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -523,7 +528,7 @@ GameObject:
   - component: {fileID: 534943396}
   m_Layer: 6
   m_Name: Isometric Diamond (8)
-  m_TagString: Untagged
+  m_TagString: Leaf
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -615,7 +620,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Constraints: 0
 --- !u!60 &534943396
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -659,7 +664,7 @@ GameObject:
   - component: {fileID: 618080935}
   m_Layer: 6
   m_Name: Isometric Diamond (6)
-  m_TagString: Untagged
+  m_TagString: Leaf
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -751,7 +756,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Constraints: 0
 --- !u!60 &618080935
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -894,7 +899,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Constraints: 0
 --- !u!114 &904423015
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -907,7 +912,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0692609a8386e45eea78f0dd149ff90d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  downForce: 2
+  downForce: 0.01
+  player: {fileID: 231946248}
 --- !u!60 &904423016
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -1183,7 +1189,7 @@ GameObject:
   - component: {fileID: 1766799017}
   m_Layer: 6
   m_Name: Isometric Diamond (9)
-  m_TagString: Untagged
+  m_TagString: Leaf
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1275,7 +1281,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Constraints: 0
 --- !u!60 &1766799017
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -1494,7 +1500,7 @@ GameObject:
   - component: {fileID: 2042626797}
   m_Layer: 6
   m_Name: Isometric Diamond (5)
-  m_TagString: Untagged
+  m_TagString: Leaf
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1563,7 +1569,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Constraints: 0
 --- !u!212 &2042626800
 SpriteRenderer:
   m_ObjectHideFlags: 0
