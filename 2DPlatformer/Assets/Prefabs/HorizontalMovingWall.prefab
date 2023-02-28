@@ -161,6 +161,8 @@ MonoBehaviour:
   bottomX: 0
   speed: 0.05
   movingLeft: 0
+  deactiveHWall: {fileID: 21300000, guid: 2069edb79a6dbb245924aa1527e9abbf, type: 3}
+  activeHWall: {fileID: 21300000, guid: 839d7beaaeff6ad40bc96e7cbb61dcae, type: 3}
 --- !u!50 &8672541247202191129
 Rigidbody2D:
   serializedVersion: 4
