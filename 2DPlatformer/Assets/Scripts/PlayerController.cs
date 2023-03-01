@@ -25,6 +25,9 @@ public class PlayerController : MonoBehaviour
 
     public GameObject spike;
 
+    private AudioSource source;
+    public AudioClip basicJumpClip;
+
 
     public Rigidbody2D rb2d;
     // Start is called before the first frame update
@@ -35,6 +38,7 @@ public class PlayerController : MonoBehaviour
         doubleJump = true;
         reverseGrav = false;
         spriteAnim = gameObject.GetComponent<AnimateWalk>();
+        source = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -54,12 +58,10 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        if (rb2d.velocity.x > 0 && facing == -1)
-        {
+        if (rb2d.velocity.x > 0 && facing == -1) {
             facing = 1;
         }
-        else if (rb2d.velocity.x < 0 && facing == 1)
-        {
+        else if (rb2d.velocity.x < 0 && facing == 1) {
             facing = -1;
         }
 
@@ -98,6 +100,7 @@ public class PlayerController : MonoBehaviour
             if(!reverseGrav) {
                 if (Physics2D.Raycast(position1, Vector3.down, 1.5f, groundMask) || Physics2D.Raycast(position2, Vector3.down, 1.5f, groundMask)) { 
                     rb2d.AddForce(new Vector3(0f, jumpHeight, 0f), ForceMode2D.Impulse);
+                    playBasicJump();
                 } else {
                     //Jump if touching a wall. This is done in an else statement because the height from jumping off the ground should take priority
                     Vector2 position3 = new Vector2(transform.position.x, transform.position.y + 1);
@@ -114,6 +117,7 @@ public class PlayerController : MonoBehaviour
             } else {
                 if (Physics2D.Raycast(position1, Vector3.up, 1.5f, groundMask) || Physics2D.Raycast(position2, Vector3.up, 1.5f, groundMask)) { 
                     rb2d.AddForce(new Vector3(0f, -jumpHeight, 0f), ForceMode2D.Impulse);
+                    playBasicJump();
                 } else {
                     //Jump if touching a wall. This is done in an else statement because the height from jumping off the ground should take priority
                     Vector2 position3 = new Vector2(transform.position.x, transform.position.y + 1);
@@ -138,6 +142,10 @@ public class PlayerController : MonoBehaviour
 
             spriteAnim.playerAnim(facing, onGround, onWall, rb2d.velocity.y, rb2d.velocity.x == 0);
 
+    }
+
+    void playBasicJump() {
+        source.PlayOneShot(basicJumpClip);
     }
 
     

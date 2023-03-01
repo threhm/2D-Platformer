@@ -1,3 +1,4 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,11 +10,15 @@ public class Spike : MonoBehaviour
     public Sprite deactiveSpike;
     public Sprite activeSpike;
 
+    private AudioSource source;
+    public AudioClip[] clip;
+
     void Start()
     {
         pc = gameObject.GetComponent<PolygonCollider2D>();
         mySpriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         pc.isTrigger = true;
+        source = GetComponent<AudioSource>();
     }
 
 
@@ -24,6 +29,7 @@ public class Spike : MonoBehaviour
             if (pr != null && OrbsStatus.getStatus("spike"))
             {
                 pr.kill();
+                playDeathSound();
             }
         }
     }
@@ -38,6 +44,12 @@ public class Spike : MonoBehaviour
         {
             mySpriteRenderer.sprite = deactiveSpike;
         }
+    }
+
+    void playDeathSound() {
+        int length = clip.Length;
+        int clipToPlay = Random.Range(0,length);
+        source.PlayOneShot(clip[clipToPlay]);
     }
 
    
