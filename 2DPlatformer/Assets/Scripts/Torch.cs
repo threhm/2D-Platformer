@@ -1,10 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Torch : MonoBehaviour
 {
     private SpriteRenderer mySpriteRenderer;
+    public Sprite[] torchSprites;
+    private bool animationBegin = true;
+    public float TorchSpeedTimer = 0.1f;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,7 +18,22 @@ public class Torch : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        mySpriteRenderer.enabled = OrbsStatus.getStatus("red");
+        if (OrbsStatus.getStatus("red") && animationBegin)
+        {
+            animationBegin = false;
+            StartCoroutine(FireAnimation());
+        }
+        
         transform.GetChild(0).gameObject.SetActive(OrbsStatus.getStatus("red"));
+    }
+
+    private IEnumerator FireAnimation()
+    {
+        foreach (Sprite torchSprite in torchSprites)
+        {
+            mySpriteRenderer.sprite = torchSprite;
+            yield return new WaitForSeconds(TorchSpeedTimer);
+        }
+        animationBegin = true;
     }
 }
