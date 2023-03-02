@@ -13,18 +13,24 @@ public class HorizontalWallMovement : MonoBehaviour
     private GameObject player;
     private bool movePlayer;
 
+    SpriteRenderer spriteRenderer;
+    public Sprite deactiveHWall;
+    public Sprite activeHWall;
+
     // Start is called before the first frame update
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
         movePlayer = false;
-    }
+        spriteRenderer = gameObject.GetComponentInChildren<SpriteRenderer>();
 
+    }
     // Update is called once per frame
     void FixedUpdate()
     {
         if (OrbsStatus.getStatus("moving"))
         {
+            spriteRenderer.sprite = activeHWall;
             //Vector3 movement = new Vector3();
             float positionX = transform.position.x;
             if (movingLeft)
@@ -68,14 +74,14 @@ public class HorizontalWallMovement : MonoBehaviour
     }
 
     void OnCollisionEnter2D(Collision2D other) {
-        if(OrbsStatus.getStatus("moving") && other.gameObject.CompareTag("Player")) {
+        if(other.gameObject.CompareTag("Player")) {
             player = other.gameObject;
             movePlayer = true;
         }
     }
 
     void OnCollisionExit2D(Collision2D other) {
-        if(OrbsStatus.getStatus("moving") && other.gameObject.CompareTag("Player")) {
+        if(other.gameObject.CompareTag("Player")) {
             movePlayer = false;
         }
     }
