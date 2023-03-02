@@ -29,7 +29,7 @@ public class ReverseGravity : MonoBehaviour
     }
 
     void OnTriggerEnter2D(Collider2D other) {
-        if(other.gameObject.CompareTag("Player")) {
+        if(other.gameObject.CompareTag("Player") && OrbsStatus.getStatus("purple")) {
             PlayerController pc = other.gameObject.GetComponent<PlayerController>();
             if(pc != null) {
                 pc.reverseGrav = true;
@@ -39,7 +39,7 @@ public class ReverseGravity : MonoBehaviour
     }
 
     void OnTriggerExit2D(Collider2D other) {
-        if(other.gameObject.CompareTag("Player")) {
+        if(other.gameObject.CompareTag("Player") && OrbsStatus.getStatus("purple")) {
             PlayerController pc = other.gameObject.GetComponent<PlayerController>();
             if(pc != null) {
                 pc.reverseGrav = false;
