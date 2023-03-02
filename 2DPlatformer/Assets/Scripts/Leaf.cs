@@ -10,7 +10,7 @@ public class Leaf : MonoBehaviour
     Rigidbody2D rg;
     public Sprite activeLeaf;
 
-    public float fadingSpeed = 1.5f;
+    public float fadingOutSpeed = 1.5f;
     public float fallingTimer = 2f;
     public float respawnTimer = 1f;
 
@@ -21,6 +21,8 @@ public class Leaf : MonoBehaviour
 
     public float downForce = 0.1f;
     bool fadingStarts = false;
+    bool fadingInFinished = false;
+    bool fadingOutFinished = false;
     bool firstTime = true;
     bool spriteUnchanged = true;
     bool noRespawn = true;
@@ -35,16 +37,18 @@ public class Leaf : MonoBehaviour
     void Start()
     {
         rg = GetComponent<Rigidbody2D>();
-
         sp = GetComponent<SpriteRenderer>();
-        RestoringColor(sp);
+        StartCoroutine(RestoringColor(sp));
 
         playerCollider = player.gameObject.GetComponent<BoxCollider2D>();
         originalLoc = transform.position;
+
         // Disable parent leaf's rigidBody
         rg.bodyType = RigidbodyType2D.Static;
 
-        // Collecting children gameObjects/components and initializing children rigidBody
+        // Collecting children gameObjects/components
+        // initializing children rigidBody and sprites
+        // initializing box collider
         foreach (Transform child in transform)
         {
             if (child.gameObject.CompareTag("Leaf"))
@@ -55,7 +59,7 @@ public class Leaf : MonoBehaviour
 
                 SpriteRenderer leafSr = child.gameObject.GetComponent<SpriteRenderer>();
                 leafSprites.Add(leafSr);
-                RestoringColor(leafSr);
+                StartCoroutine(RestoringColor(leafSr));
 
             } else if (child.gameObject.CompareTag("Box Collider"))
             {
@@ -78,8 +82,9 @@ public class Leaf : MonoBehaviour
                 childSp.sprite = activeLeaf;
             }
         }
-        // Destory the leavesRg once they fade away
-        if (sp.color.a <= 0.2f && noRespawn)
+
+        // Respawn the leaf platform after respawnTimer tiem once the old one fades away
+        if (fadingOutFinished && noRespawn && fadingInFinished)
         {
             noRespawn = false;
             StartCoroutine(LeafRespawn());
@@ -96,11 +101,12 @@ public class Leaf : MonoBehaviour
         // If the leavesRg start to fall, makes the leavesRg fade away
         if (fadingStarts)
         {
+            fadingStarts = false;
             foreach (SpriteRenderer childSp in leafSprites)
             {
-                FadingEffects(fadingSpeed, childSp);
+                StartCoroutine(FadingOut(childSp));
             }
-            FadingEffects(fadingSpeed, sp);
+            StartCoroutine(FadingOut(sp));
         }
     }
 
@@ -124,7 +130,7 @@ public class Leaf : MonoBehaviour
     }
 
     /**
-     * Create a delay before the leavesRg start to fall apart
+     * Respawn the platform after respawnTimer time
      */
     private IEnumerator LeafRespawn()
     {
@@ -146,22 +152,36 @@ public class Leaf : MonoBehaviour
     }
 
     /**
-     * Create the fading away visual effect
-     * @param {fadingTime} the speed objects are fading
-     * @param {targetSpriteRenderer} the target sprite to apply the fading effect to
+     * Create the fading in visual effect
+     * @param {targetSpriteRenderer} the target sprite to apply the fading in effect to
      */
-    private void FadingEffects(float fadingTime, SpriteRenderer targetSpriteRenderer)
+    private IEnumerator FadingOut(SpriteRenderer targetSpriteRenderer)
     {
         Color color = targetSpriteRenderer.color;
-        color.a -= Time.deltaTime * fadingTime;
-        targetSpriteRenderer.color = color;
+        for (float a = 1f; a >= 0f; a -= 0.001f)
+        {
+            color.a = a;
+            targetSpriteRenderer.color = color;
+            yield return new WaitForEndOfFrameUnit();
+        }
+        fadingOutFinished = true;
     }
 
-    private void RestoringColor(SpriteRenderer targetSpriteRenderer)
+
+    /**
+     * Create the fading in visual effect
+     * @param {targetSpriteRenderer} the target sprite to apply the fading in effect to
+     */
+    private IEnumerator RestoringColor(SpriteRenderer targetSpriteRenderer)
     {
         Color color = targetSpriteRenderer.color;
-        color.a = 1.0f;
-        targetSpriteRenderer.color = color;
+        for (float a = 0.1f; a <= 1f; a += 0.001f)
+        {
+            color.a = a;
+            targetSpriteRenderer.color = color;
+            yield return new WaitForEndOfFrameUnit();
+        }
+        fadingInFinished = true;
     }
 
 }
