@@ -8,6 +8,7 @@ TagManager:
   - Orb
   - Spike
   - Leaf
+  - Box Collider
   layers:
   - Default
   - TransparentFX

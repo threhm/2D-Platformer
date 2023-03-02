@@ -8,32 +8,39 @@ public class Leaf : MonoBehaviour
 {
     SpriteRenderer sp;
     Rigidbody2D rg;
-    PolygonCollider2D pc;
+    public Sprite activeLeaf;
 
     public float fadingSpeed = 1.5f;
     public float fallingTimer = 2f;
+    public float respawnTimer = 1f;
 
     public GameObject player;
+    public GameObject leafPlatform;
+    private Vector3 originalLoc;
     BoxCollider2D playerCollider;
 
-    public float downForce = 0.01f;
+    public float downForce = 0.1f;
     bool fadingStarts = false;
     bool firstTime = true;
+    bool spriteUnchanged = true;
+    bool noRespawn = true;
 
-    private List<GameObject> leaves = new List<GameObject>();
+    private List<Rigidbody2D> leavesRg = new List<Rigidbody2D>();
     private List<SpriteRenderer> leafSprites = new List<SpriteRenderer>();
+
+    private GameObject box;
+    private BoxCollider2D boxCollider;
 
     // Start is called before the first frame update
     void Start()
     {
         rg = GetComponent<Rigidbody2D>();
-        pc = GetComponent<PolygonCollider2D>();
-        pc.isTrigger = true;
 
         sp = GetComponent<SpriteRenderer>();
+        RestoringColor(sp);
 
         playerCollider = player.gameObject.GetComponent<BoxCollider2D>();
-
+        originalLoc = transform.position;
         // Disable parent leaf's rigidBody
         rg.bodyType = RigidbodyType2D.Static;
 
@@ -42,63 +49,88 @@ public class Leaf : MonoBehaviour
         {
             if (child.gameObject.CompareTag("Leaf"))
             {
-                leaves.Add(child.gameObject);
-                leafSprites.Add(child.gameObject.GetComponent<SpriteRenderer>());
+                Rigidbody2D leafRg = child.gameObject.GetComponent<Rigidbody2D>();
+                leafRg.bodyType = RigidbodyType2D.Static;
+                leavesRg.Add(leafRg);
 
-                child.gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+                SpriteRenderer leafSr = child.gameObject.GetComponent<SpriteRenderer>();
+                leafSprites.Add(leafSr);
+                RestoringColor(leafSr);
+
+            } else if (child.gameObject.CompareTag("Box Collider"))
+            {
+                box = child.gameObject;
+                boxCollider = child.gameObject.GetComponent<BoxCollider2D>();
+                boxCollider.isTrigger = false;
+                boxCollider.enabled = true;
             }
         }
     }
 
     private void Update()
     {
-        // Destory the leaves once they fade away
-        if (sp.color.a <= 0.2f)
+        if (OrbsStatus.getStatus("green") && spriteUnchanged)
         {
-            Destroy(gameObject);
-        }
-
-        // Checking if the children leaves collide with the player or not.
-        // If so and the green orb is collected, start the leaves mechanics
-        foreach (GameObject leaf in leaves)
-        {
-            if (OrbsStatus.getStatus("green") &&
-                leaf.gameObject.GetComponent<PolygonCollider2D>().IsTouching(playerCollider) &&
-                firstTime)
+            spriteUnchanged = false;
+            sp.sprite = activeLeaf;
+            foreach (SpriteRenderer childSp in leafSprites)
             {
-                firstTime = false;
-                StartCoroutine(LeafFalling());
+                childSp.sprite = activeLeaf;
             }
         }
+        // Destory the leavesRg once they fade away
+        if (sp.color.a <= 0.2f && noRespawn)
+        {
+            noRespawn = false;
+            StartCoroutine(LeafRespawn());
+        }
 
-        // If the leaves start to fall, makes the leaves fade away
+        // Checking if the children leavesRg collide with the player or not.
+        // If so and the green orb is collected, start the leavesRg mechanics
+        if (OrbsStatus.getStatus("green") && firstTime && boxCollider.IsTouching(playerCollider))
+        {
+            firstTime = false;
+            StartCoroutine(LeafFalling());
+        }
+
+        // If the leavesRg start to fall, makes the leavesRg fade away
         if (fadingStarts)
         {
-            FadingEffects(fadingSpeed, sp);
             foreach (SpriteRenderer childSp in leafSprites)
             {
                 FadingEffects(fadingSpeed, childSp);
             }
+            FadingEffects(fadingSpeed, sp);
         }
     }
 
     /**
-     * Create a delay before the leaves start to fall apart
+     * Create a delay before the leavesRg start to fall apart
      */
     private IEnumerator LeafFalling()
     {
         yield return new WaitForSeconds(fallingTimer);
-
+        // Destory the box collider
+        boxCollider.enabled = false;
         // When reached, start the fading visual effect
         fadingStarts = true;
-
         // When reached, create the falling physics
         rgUpdate(rg);
-        foreach (GameObject leaf in leaves)
+        foreach (Rigidbody2D leaf in leavesRg)
         {
-            rgUpdate(leaf.gameObject.GetComponent<Rigidbody2D>());
+            rgUpdate(leaf);
         }
         
+    }
+
+    /**
+     * Create a delay before the leavesRg start to fall apart
+     */
+    private IEnumerator LeafRespawn()
+    {
+        yield return new WaitForSeconds(respawnTimer);
+        Instantiate(leafPlatform, originalLoc, Quaternion.identity);
+        Destroy(gameObject);
     }
 
     /**
@@ -125,15 +157,11 @@ public class Leaf : MonoBehaviour
         targetSpriteRenderer.color = color;
     }
 
-    private void OnTriggerEnter2D(Collider2D col)
+    private void RestoringColor(SpriteRenderer targetSpriteRenderer)
     {
-        // If collide with the player and the green orb is collected,
-        // start the leaves mechanics
-        if (OrbsStatus.getStatus("green") && col.gameObject.CompareTag("Player") && firstTime)
-        {
-            firstTime = false;
-            StartCoroutine(LeafFalling());
-        }
+        Color color = targetSpriteRenderer.color;
+        color.a = 1.0f;
+        targetSpriteRenderer.color = color;
     }
 
 }

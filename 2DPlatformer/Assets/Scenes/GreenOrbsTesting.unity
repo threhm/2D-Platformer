@@ -842,11 +842,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2551123458162120672, guid: 56c11d04c1b07496ea6acd3bc0de19b1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.33
+      value: -0.3
       objectReference: {fileID: 0}
     - target: {fileID: 2551123458162120672, guid: 56c11d04c1b07496ea6acd3bc0de19b1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.97
+      value: -1.18
       objectReference: {fileID: 0}
     - target: {fileID: 2551123458162120672, guid: 56c11d04c1b07496ea6acd3bc0de19b1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -887,6 +887,14 @@ PrefabInstance:
     - target: {fileID: 2551123458162120678, guid: 56c11d04c1b07496ea6acd3bc0de19b1, type: 3}
       propertyPath: m_Name
       value: Leaf Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 5918237487587709645, guid: 56c11d04c1b07496ea6acd3bc0de19b1, type: 3}
+      propertyPath: m_Size.y
+      value: 0.7127223
+      objectReference: {fileID: 0}
+    - target: {fileID: 5918237487587709645, guid: 56c11d04c1b07496ea6acd3bc0de19b1, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.14190221
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 56c11d04c1b07496ea6acd3bc0de19b1, type: 3}
