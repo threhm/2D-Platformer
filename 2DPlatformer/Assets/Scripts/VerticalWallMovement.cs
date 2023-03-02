@@ -22,20 +22,32 @@ public class VerticalWallMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 movement = new Vector3();
-        if(movingUp) {
-            if(transform.position.y < (topY)) {
-                movement.y += speed;
-            } else {
-                movingUp = false;
+        if (OrbsStatus.getStatus("moving"))
+        {
+            Vector3 movement = new Vector3();
+            if (movingUp)
+            {
+                if (transform.position.y < (topY))
+                {
+                    movement.y += speed;
+                }
+                else
+                {
+                    movingUp = false;
+                }
             }
-        } else if (!movingUp) {
-            if(transform.position.y > (bottomY)) {
-                movement.y -= speed;
-            } else {
-                movingUp = true;
+            else if (!movingUp)
+            {
+                if (transform.position.y > (bottomY))
+                {
+                    movement.y -= speed;
+                }
+                else
+                {
+                    movingUp = true;
+                }
             }
+            rb.velocity = new Vector2(movement.x, movement.y);
         }
-        rb.velocity = new Vector2(movement.x, movement.y);
     }
 }
