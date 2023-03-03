@@ -196,7 +196,13 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 2e78efc0648080448833e1a057af1998, type: 3}
   - {fileID: 21300000, guid: 719c010dcce28e449b3e9a3d240ed5a6, type: 3}
   - {fileID: 21300000, guid: 065de10287ae8f6488950a206f8c6878, type: 3}
+  deathFrames:
+  - {fileID: 21300000, guid: 83496fddb6f30174cb047c8758abef4b, type: 3}
+  - {fileID: 21300000, guid: db20dcaedd874a34bb7b9db1f18b4bb9, type: 3}
+  - {fileID: 21300000, guid: 5788064404e59f94abd8a9abb04ac05d, type: 3}
+  - {fileID: 21300000, guid: 02cf9220b3b93bd4ea0b8854050ce19d, type: 3}
   fps: 8
+  deathfps: 6
   standingSprite: {fileID: 21300000, guid: 42590010c7397d24b97e974491c7fceb, type: 3}
   jumpSprite: {fileID: 21300000, guid: b71e0a8908d4f2c43802ffa9c073e793, type: 3}
   wallSprite: {fileID: 21300000, guid: 90cd437d4456df34682dda6e2f50401c, type: 3}
