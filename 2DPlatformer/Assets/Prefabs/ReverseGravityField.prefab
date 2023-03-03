@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8edec01bc5b79b443998fcbe9c3c7fa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activeReverseGravity: {fileID: 21300000, guid: d13133340a3b0d1408a906c5ecf3fad7, type: 3}
 --- !u!212 &2312798606061078584
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -87,7 +88,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d13133340a3b0d1408a906c5ecf3fad7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2a81ac1145c9a0f468f4903020821767, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

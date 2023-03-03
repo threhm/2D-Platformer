@@ -6,6 +6,7 @@ public class Water : MonoBehaviour
 {
     private SpriteRenderer mySpriteRenderer;
     private BoxCollider2D boxCollider;
+    public Sprite activeWater;
     void Start()
     {
         mySpriteRenderer = GetComponent<SpriteRenderer>();
@@ -16,7 +17,10 @@ public class Water : MonoBehaviour
 
     void Update()
     {
-        mySpriteRenderer.enabled = OrbsStatus.getStatus("blue");
+        if (OrbsStatus.getStatus("blue"))
+        {
+            mySpriteRenderer.sprite = activeWater;
+        }
         boxCollider.isTrigger = OrbsStatus.getStatus("blue");
         boxCollider.enabled = OrbsStatus.getStatus("blue");
     }
