@@ -22,7 +22,9 @@ public class VerticalWallMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (OrbsStatus.getStatus("moving"))
+        if (OrbsStatus.getStatus("moving0") &&
+            OrbsStatus.getStatus("moving1") &&
+            OrbsStatus.getStatus("moving2"))
         {
             Vector3 movement = new Vector3();
             if (movingUp)

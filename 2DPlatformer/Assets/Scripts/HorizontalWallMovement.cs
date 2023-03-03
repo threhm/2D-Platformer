@@ -28,7 +28,9 @@ public class HorizontalWallMovement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (OrbsStatus.getStatus("moving"))
+        if (OrbsStatus.getStatus("moving0") &&
+            OrbsStatus.getStatus("moving1") &&
+            OrbsStatus.getStatus("moving2"))
         {
             spriteRenderer.sprite = activeHWall;
             //Vector3 movement = new Vector3();
