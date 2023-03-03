@@ -24,9 +24,10 @@ public class AnimateWalk : MonoBehaviour
         frameIndex = 0;
     }
 
-    public void playerAnim(int dFacing, bool grounded, bool walled, float airtime, bool notMoving)
+    public void playerAnim(int dFacing, bool grounded, bool walled, float airtime, bool notMoving, bool zeroG)
     {
         sr.flipX = dFacing < 0;
+        sr.flipY = zeroG;
 
         if (grounded) {
             if (!notMoving) {

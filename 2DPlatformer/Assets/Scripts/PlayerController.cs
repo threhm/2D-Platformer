@@ -140,7 +140,7 @@ public class PlayerController : MonoBehaviour
             Physics2D.Raycast(wallCheck3, Vector3.right, 1.5f, groundMask) || Physics2D.Raycast(wallCheck4, Vector3.right, 1.5f, groundMask)) {onWall = true;}
         else {onWall= false;}
 
-            spriteAnim.playerAnim(facing, onGround, onWall, rb2d.velocity.y, rb2d.velocity.x == 0);
+            spriteAnim.playerAnim(facing, onGround, onWall, rb2d.velocity.y, rb2d.velocity.x == 0, reverseGrav);
 
     }
 
