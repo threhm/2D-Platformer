@@ -15,6 +15,22 @@ public class MainMenu : MonoBehaviour
     }
 
     public void loadLevel(int level) {
+        if (level == 1)
+        {
+            OrbsStatus.levelOnePrep();
+        }
+        else if (level == 2)
+        {
+            OrbsStatus.levelTwoPrep();
+        }
+        else if (level == 3)
+        {
+            OrbsStatus.levelThreePrep();
+        }
+        else if (level == 4)
+        {
+            OrbsStatus.levelFourPrep();
+        }
         SceneManager.LoadScene(level);
     }
 }
