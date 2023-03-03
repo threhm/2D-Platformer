@@ -16,19 +16,16 @@ public class DoorController : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other) {
         //SceneManager.LoadScene(nextScene, LoadSceneMode.Single);
         if (other.gameObject.CompareTag("Player")) {
-            if (nextScene == "Level1" && OrbsStatus.levelOneComplete())
+
+            if (nextScene == "Level2" && OrbsStatus.levelOneComplete())
             {
                 WinMechanics();
             }
-            else if (nextScene == "Level2" && OrbsStatus.levelTwoComplete())
+            else if (nextScene == "Level3" && OrbsStatus.levelTwoComplete())
             {
                 WinMechanics();
             }
-            else if (nextScene == "Level3" && OrbsStatus.levelThreeComplete())
-            {
-                WinMechanics();
-            }
-            else if (nextScene == "Level4" && OrbsStatus.levelFourComplete())
+            else if (nextScene == "Level4" && OrbsStatus.levelThreeComplete())
             {
                 WinMechanics();
             }
