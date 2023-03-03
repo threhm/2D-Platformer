@@ -8,7 +8,9 @@ public static class OrbsStatus
     private static bool _redOrbsCollected = false;
     private static bool _greenOrbsCollected = false;
     private static bool _spikeOrbsCollected = false;
-    private static bool _movingOrbsCollected = false;
+    private static bool _movingOrbsCollected0 = false;
+    private static bool _movingOrbsCollected1 = false;
+    private static bool _movingOrbsCollected2 = false;
     private static bool _purpleOrbsCollected = false;
 
     public static bool getStatus(string orbColor)
@@ -30,9 +32,17 @@ public static class OrbsStatus
         {
             targetOrb = _spikeOrbsCollected;
         }
-        else if (orbColor == "moving")
+        else if (orbColor == "moving0")
         {
-            targetOrb = _movingOrbsCollected;
+            targetOrb = _movingOrbsCollected0;
+        }
+        else if (orbColor == "moving1")
+        {
+            targetOrb = _movingOrbsCollected1;
+        }
+        else if (orbColor == "moving2")
+        {
+            targetOrb = _movingOrbsCollected2;
         }
         else if (orbColor == "purple")
         {
@@ -60,9 +70,17 @@ public static class OrbsStatus
         {
             _spikeOrbsCollected = true;
         }
-        else if (orbColor == "moving")
+        else if (orbColor == "moving0")
         {
-            _movingOrbsCollected = true;
+            _movingOrbsCollected0 = true;
+        }
+        else if (orbColor == "moving1")
+        {
+            _movingOrbsCollected1 = true;
+        }
+        else if (orbColor == "moving2")
+        {
+            _movingOrbsCollected2 = true;
         }
         else if (orbColor == "purple")
         {
