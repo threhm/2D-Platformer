@@ -87,4 +87,76 @@ public static class OrbsStatus
             _purpleOrbsCollected = true;
         }
     }
+
+    public static bool levelOneComplete()
+    {
+        return _spikeOrbsCollected;
+    }
+
+    public static void levelOnePrep()
+    {
+        _blueOrbsCollected = false;
+        _redOrbsCollected = false;
+        _greenOrbsCollected = false;
+        _spikeOrbsCollected = false;
+        _movingOrbsCollected0 = false;
+        _movingOrbsCollected1 = false;
+        _movingOrbsCollected2 = false;
+        _purpleOrbsCollected = false;
+    }
+
+    public static bool levelTwoComplete()
+    {
+        return _spikeOrbsCollected && _movingOrbsCollected0 &&
+               _movingOrbsCollected1 && _movingOrbsCollected2;
+    }
+
+    public static void levelTwoPrep()
+    {
+        _blueOrbsCollected = false;
+        _redOrbsCollected = false;
+        _greenOrbsCollected = false;
+        _spikeOrbsCollected = true;
+        _movingOrbsCollected0 = false;
+        _movingOrbsCollected1 = false;
+        _movingOrbsCollected2 = false;
+        _purpleOrbsCollected = false;
+    }
+
+    public static bool levelThreeComplete()
+    {
+        return _spikeOrbsCollected && _movingOrbsCollected0 &&
+               _movingOrbsCollected1 && _movingOrbsCollected2 && _purpleOrbsCollected;
+    }
+
+    public static void levelThreePrep()
+    {
+        _blueOrbsCollected = false;
+        _redOrbsCollected = false;
+        _greenOrbsCollected = false;
+        _spikeOrbsCollected = true;
+        _movingOrbsCollected0 = true;
+        _movingOrbsCollected1 = true;
+        _movingOrbsCollected2 = true;
+        _purpleOrbsCollected = false;
+    }
+
+    public static bool levelFourComplete()
+    {
+        return _spikeOrbsCollected && _movingOrbsCollected0 &&
+               _movingOrbsCollected1 && _movingOrbsCollected2 &&
+               _purpleOrbsCollected && _blueOrbsCollected;
+    }
+
+    public static void levelFourPrep()
+    {
+        _blueOrbsCollected = false;
+        _redOrbsCollected = false;
+        _greenOrbsCollected = false;
+        _spikeOrbsCollected = true;
+        _movingOrbsCollected0 = true;
+        _movingOrbsCollected1 = true;
+        _movingOrbsCollected2 = true;
+        _purpleOrbsCollected = true;
+    }
 }

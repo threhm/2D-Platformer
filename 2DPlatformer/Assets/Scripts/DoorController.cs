@@ -15,9 +15,23 @@ public class DoorController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other) {
         //SceneManager.LoadScene(nextScene, LoadSceneMode.Single);
-        if(other.gameObject.CompareTag("Player")) {
-            playWinSound();
-            Invoke("Win", 3);
+        if (other.gameObject.CompareTag("Player")) {
+            if (nextScene == "Level1" && OrbsStatus.levelOneComplete())
+            {
+                WinMechanics();
+            }
+            else if (nextScene == "Level2" && OrbsStatus.levelTwoComplete())
+            {
+                WinMechanics();
+            }
+            else if (nextScene == "Level3" && OrbsStatus.levelThreeComplete())
+            {
+                WinMechanics();
+            }
+            else if (nextScene == "Level4" && OrbsStatus.levelFourComplete())
+            {
+                WinMechanics();
+            }
         }
     }
     void Start()
@@ -25,6 +39,11 @@ public class DoorController : MonoBehaviour
         bc = gameObject.GetComponent<BoxCollider2D>();
         bc.isTrigger = true;
         source = GetComponent<AudioSource>();
+    }
+
+    public void WinMechanics() {
+        playWinSound();
+        Invoke("Win", 3);
     }
 
     public void Win() {
