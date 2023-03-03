@@ -5,13 +5,42 @@ using UnityEngine.SceneManagement;
 
 public class DoorController : MonoBehaviour
 {
-    // Start is called before the first frame update
+    SpriteRenderer mySpriteRenderer;
+    public Sprite activeDoor;
+    private bool notActive = true;
     private BoxCollider2D bc;
 
     private AudioSource source;
     public AudioClip clip;
 
     public string nextScene;
+
+    void Start()
+    {
+        bc = gameObject.GetComponent<BoxCollider2D>();
+        mySpriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+        bc.isTrigger = true;
+        source = GetComponent<AudioSource>();
+    }
+
+    void Update()
+    {
+        if (nextScene == "Level2" && OrbsStatus.levelOneComplete() && notActive)
+        {
+            mySpriteRenderer.sprite = activeDoor;
+            notActive = false;
+        }
+        else if (nextScene == "Level3" && OrbsStatus.levelTwoComplete() && notActive)
+        {
+            mySpriteRenderer.sprite = activeDoor;
+            notActive = false;
+        }
+        else if (nextScene == "Level4" && OrbsStatus.levelThreeComplete() && notActive)
+        {
+            mySpriteRenderer.sprite = activeDoor;
+            notActive = false;
+        }
+    }
 
     void OnTriggerEnter2D(Collider2D other) {
         //SceneManager.LoadScene(nextScene, LoadSceneMode.Single);
@@ -30,12 +59,6 @@ public class DoorController : MonoBehaviour
                 WinMechanics();
             }
         }
-    }
-    void Start()
-    {
-        bc = gameObject.GetComponent<BoxCollider2D>();
-        bc.isTrigger = true;
-        source = GetComponent<AudioSource>();
     }
 
     public void WinMechanics() {
