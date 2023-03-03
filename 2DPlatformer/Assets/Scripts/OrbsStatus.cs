@@ -159,4 +159,43 @@ public static class OrbsStatus
         _movingOrbsCollected2 = true;
         _purpleOrbsCollected = true;
     }
+
+    public static bool levelFiveComplete()
+    {
+        return _spikeOrbsCollected && _movingOrbsCollected0 &&
+               _movingOrbsCollected1 && _movingOrbsCollected2 &&
+               _purpleOrbsCollected && _blueOrbsCollected && _greenOrbsCollected;
+    }
+
+    public static void levelFivePrep()
+    {
+        _blueOrbsCollected = true;
+        _redOrbsCollected = false;
+        _greenOrbsCollected = false;
+        _spikeOrbsCollected = true;
+        _movingOrbsCollected0 = true;
+        _movingOrbsCollected1 = true;
+        _movingOrbsCollected2 = true;
+        _purpleOrbsCollected = true;
+    }
+
+    public static bool levelSixComplete()
+    {
+        return _spikeOrbsCollected && _movingOrbsCollected0 &&
+               _movingOrbsCollected1 && _movingOrbsCollected2 &&
+               _purpleOrbsCollected && _blueOrbsCollected &&
+               _greenOrbsCollected && _redOrbsCollected;
+    }
+
+    public static void levelSixPrep()
+    {
+        _blueOrbsCollected = true;
+        _redOrbsCollected = false;
+        _greenOrbsCollected = true;
+        _spikeOrbsCollected = true;
+        _movingOrbsCollected0 = true;
+        _movingOrbsCollected1 = true;
+        _movingOrbsCollected2 = true;
+        _purpleOrbsCollected = true;
+    }
 }

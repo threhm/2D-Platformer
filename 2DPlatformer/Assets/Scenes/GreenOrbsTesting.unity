@@ -888,14 +888,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Leaf Platform
       objectReference: {fileID: 0}
-    - target: {fileID: 5918237487587709645, guid: 56c11d04c1b07496ea6acd3bc0de19b1, type: 3}
-      propertyPath: m_Size.y
-      value: 0.7127223
-      objectReference: {fileID: 0}
-    - target: {fileID: 5918237487587709645, guid: 56c11d04c1b07496ea6acd3bc0de19b1, type: 3}
-      propertyPath: m_Offset.y
-      value: 0.14190221
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 56c11d04c1b07496ea6acd3bc0de19b1, type: 3}
 --- !u!1001 &4549079428554329255

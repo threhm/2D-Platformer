@@ -31,6 +31,14 @@ public class MainMenu : MonoBehaviour
         {
             OrbsStatus.levelFourPrep();
         }
+        else if (level == 5)
+        {
+            OrbsStatus.levelFivePrep();
+        }
+        else if (level == 6)
+        {
+            OrbsStatus.levelSixPrep();
+        }
         SceneManager.LoadScene(level);
     }
 }

@@ -40,6 +40,16 @@ public class DoorController : MonoBehaviour
             mySpriteRenderer.sprite = activeDoor;
             notActive = false;
         }
+        else if (nextScene == "Level5" && OrbsStatus.levelFiveComplete() && notActive)
+        {
+            mySpriteRenderer.sprite = activeDoor;
+            notActive = false;
+        }
+        else if (nextScene == "Level6" && OrbsStatus.levelSixComplete() && notActive)
+        {
+            mySpriteRenderer.sprite = activeDoor;
+            notActive = false;
+        }
     }
 
     void OnTriggerEnter2D(Collider2D other) {
@@ -55,6 +65,18 @@ public class DoorController : MonoBehaviour
                 WinMechanics();
             }
             else if (nextScene == "Level4" && OrbsStatus.levelThreeComplete())
+            {
+                WinMechanics();
+            }
+            else if (nextScene == "Level5" && OrbsStatus.levelFourComplete())
+            {
+                WinMechanics();
+            }
+            else if (nextScene == "Level6" && OrbsStatus.levelFiveComplete())
+            {
+                WinMechanics();
+            }
+            else if (nextScene == "EndScene" && OrbsStatus.levelSixComplete())
             {
                 WinMechanics();
             }
