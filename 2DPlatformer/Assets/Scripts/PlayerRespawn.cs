@@ -26,7 +26,7 @@ public class PlayerRespawn : MonoBehaviour
         {
             //reset the variables
             mcol.enabled=true;
-            rb2D.constraints = RigidbodyConstraints2D.None;
+            rb2D.constraints = RigidbodyConstraints2D.FreezeRotation;
             rb2D.transform.position = respawnPoint.transform.position;
             spriteAnim.isAlive = true;
             spriteAnim.deathFrameIndex = 0;
