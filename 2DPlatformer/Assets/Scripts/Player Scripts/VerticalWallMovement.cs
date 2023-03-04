@@ -5,21 +5,22 @@ using UnityEngine;
 public class VerticalWallMovement : MonoBehaviour
 {
 
-    //public float topX;
+    //Highest Y value the platform will move to
     public float topY;
-    //public float bottomX;
+    //Smallest Y value the platform will move to
     public float bottomY;
-
+    //Speed of the platforms movement
     public float speed;
+    //Is the platform currently moving up. Set to public so that we can edit if platforms initially move up or down
     public bool movingUp = false;
     private Rigidbody2D rb;
-    // Start is called before the first frame update
+
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
+    //Move the platform up or down each update call if all the movement orbs have been collected
     void Update()
     {
         if (OrbsStatus.getStatus("moving0") &&

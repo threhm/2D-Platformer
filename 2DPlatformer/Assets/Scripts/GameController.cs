@@ -5,23 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
     void Update()
     {
+        //Quit the game if escape is pressed
         if(Input.GetKeyDown(KeyCode.Escape)) {
             Application.Quit();
         }
-        if(Input.GetKeyDown(KeyCode.P)) {
-            SceneManager.LoadScene("Level2", LoadSceneMode.Single);
-        }
-        if(Input.GetKeyDown(KeyCode.L)) {
-            SceneManager.LoadScene("Level3", LoadSceneMode.Single);
-        }
+        //Reload the scene if R is pressed
+        if(Input.GetKeyDown(KeyCode.R)){
+             Scene scene = SceneManager.GetActiveScene(); SceneManager.LoadScene(scene.name);
+         }
     }
 }
