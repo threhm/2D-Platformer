@@ -11,8 +11,8 @@ public class PlayBackground : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        Vector3 leftPos = new Vector3(transform.position.x - 1.85f, transform.position.y + 0.2f, transform.position.z);
-        Vector3 rightPos = new Vector3(transform.position.x + 1.7f, transform.position.y + 0.2f, transform.position.z);
+        Vector3 leftPos = new Vector3(transform.position.x - 1.9f, transform.position.y - 0.55f, transform.position.z);
+        Vector3 rightPos = new Vector3(transform.position.x + 1.75f, transform.position.y - 0.55f, transform.position.z);
         leftPlatform = Instantiate(platform, leftPos, Quaternion.identity);
         rightPlatform = Instantiate(platform, rightPos, Quaternion.identity);
     }

@@ -11,8 +11,8 @@ public class QuitBackground : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        Vector3 leftPos = new Vector3(transform.position.x - 1.8f, transform.position.y + 0.1f, transform.position.z);
-        Vector3 rightPos = new Vector3(transform.position.x + 1.8f, transform.position.y + 0.1f, transform.position.z);
+        Vector3 leftPos = new Vector3(transform.position.x - 1.9f, transform.position.y + 0.1f, transform.position.z);
+        Vector3 rightPos = new Vector3(transform.position.x + 1.95f, transform.position.y + 0.1f, transform.position.z);
         leftPlatform = Instantiate(platform, leftPos, Quaternion.identity);
         rightPlatform = Instantiate(platform, rightPos, Quaternion.identity);
     }
