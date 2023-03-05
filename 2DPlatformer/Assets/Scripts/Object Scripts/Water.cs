@@ -7,10 +7,15 @@ public class Water : MonoBehaviour
     private SpriteRenderer mySpriteRenderer;
     private BoxCollider2D boxCollider;
     public Sprite activeWater;
+
+    private AudioSource myAudioSource;
+    public AudioClip drowning;
+
     void Start()
     {
         mySpriteRenderer = GetComponent<SpriteRenderer>();
         boxCollider = gameObject.GetComponent<BoxCollider2D>();
+        myAudioSource = GetComponent<AudioSource>();
         boxCollider.isTrigger = false;
         boxCollider.enabled = false;
     }
@@ -33,6 +38,7 @@ public class Water : MonoBehaviour
             if (pr != null)
             {
                 pr.kill();
+                myAudioSource.PlayOneShot(drowning);
             }
         }
     }
