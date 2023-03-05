@@ -40,12 +40,17 @@ public class DoorController : MonoBehaviour
             mySpriteRenderer.sprite = activeDoor;
             notActive = false;
         }
-        else if (nextScene == "Level5" && OrbsStatus.levelFiveComplete() && notActive)
+        else if (nextScene == "Level5" && OrbsStatus.levelFourComplete() && notActive)
         {
             mySpriteRenderer.sprite = activeDoor;
             notActive = false;
         }
-        else if (nextScene == "Level6" && OrbsStatus.levelSixComplete() && notActive)
+        else if (nextScene == "Level6" && OrbsStatus.levelFiveComplete() && notActive)
+        {
+            mySpriteRenderer.sprite = activeDoor;
+            notActive = false;
+        }
+        else if (nextScene == "EndLevel" && OrbsStatus.levelSixComplete() && notActive)
         {
             mySpriteRenderer.sprite = activeDoor;
             notActive = false;
@@ -76,7 +81,7 @@ public class DoorController : MonoBehaviour
             {
                 WinMechanics();
             }
-            else if (nextScene == "EndScene" && OrbsStatus.levelSixComplete())
+            else if (nextScene == "EndLevel" && OrbsStatus.levelSixComplete())
             {
                 WinMechanics();
             }
