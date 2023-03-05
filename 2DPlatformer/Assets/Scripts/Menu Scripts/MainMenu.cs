@@ -5,6 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    private AudioSource myAudioSource;
+    public AudioClip button_sound;
+
+    void Start()
+    {
+        myAudioSource = GetComponent<AudioSource>();
+    }
 
     //If play is selected load the first scene
     public void PlayGame() {
@@ -44,5 +51,10 @@ public class MainMenu : MonoBehaviour
             OrbsStatus.levelSixPrep();
         }
         SceneManager.LoadScene(level);
+    }
+
+    public void PlayButtonSound()
+    {
+        myAudioSource.PlayOneShot(button_sound);
     }
 }

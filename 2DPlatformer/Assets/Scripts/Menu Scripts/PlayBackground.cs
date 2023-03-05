@@ -8,6 +8,13 @@ public class PlayBackground : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     public GameObject platform;
     GameObject leftPlatform;
     GameObject rightPlatform;
+    private AudioSource myAudioSource;
+    public AudioClip highlight_sound;
+
+    void Start()
+    {
+        myAudioSource = GetComponent<AudioSource>();
+    }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
@@ -15,6 +22,7 @@ public class PlayBackground : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         Vector3 rightPos = new Vector3(transform.position.x + 1.75f, transform.position.y - 0.55f, transform.position.z);
         leftPlatform = Instantiate(platform, leftPos, Quaternion.identity);
         rightPlatform = Instantiate(platform, rightPos, Quaternion.identity);
+        myAudioSource.PlayOneShot(highlight_sound);
     }
 
     public void OnPointerExit(PointerEventData eventData)
