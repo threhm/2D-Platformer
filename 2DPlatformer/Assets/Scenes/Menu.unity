@@ -137,6 +137,7 @@ GameObject:
   - component: {fileID: 10577926}
   - component: {fileID: 10577929}
   - component: {fileID: 10577930}
+  - component: {fileID: 10577931}
   m_Layer: 5
   m_Name: LevelSelectMenu
   m_TagString: Untagged
@@ -295,7 +296,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   platform: {fileID: 4377551503436995288, guid: bbeec988d0f3943bfa4dbbbae310f59d, type: 3}
-  highlight_sound: {fileID: 8300000, guid: 1912bef57594e4caa830b92de8b4158c, type: 3}
 --- !u!82 &10577930
 AudioSource:
   m_ObjectHideFlags: 0
@@ -392,6 +392,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &10577931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 10577924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4d93ba2a616943719b13d1c256248a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isLoop: 0
+  highlight_sound: {fileID: 8300000, guid: 1912bef57594e4caa830b92de8b4158c, type: 3}
 --- !u!1 &15223067
 GameObject:
   m_ObjectHideFlags: 0
@@ -827,6 +841,7 @@ GameObject:
   - component: {fileID: 465166904}
   - component: {fileID: 465166907}
   - component: {fileID: 465166908}
+  - component: {fileID: 465166909}
   m_Layer: 5
   m_Name: PlayButton
   m_TagString: Untagged
@@ -973,7 +988,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   platform: {fileID: 4377551503436995288, guid: bbeec988d0f3943bfa4dbbbae310f59d, type: 3}
-  highlight_sound: {fileID: 8300000, guid: 1912bef57594e4caa830b92de8b4158c, type: 3}
 --- !u!82 &465166908
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1070,6 +1084,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &465166909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 465166902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4d93ba2a616943719b13d1c256248a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isLoop: 0
+  highlight_sound: {fileID: 8300000, guid: 1912bef57594e4caa830b92de8b4158c, type: 3}
 --- !u!1 &634210588
 GameObject:
   m_ObjectHideFlags: 0
@@ -1464,6 +1492,7 @@ GameObject:
   - component: {fileID: 1182610416}
   - component: {fileID: 1182610419}
   - component: {fileID: 1182610420}
+  - component: {fileID: 1182610421}
   m_Layer: 5
   m_Name: QuitButton
   m_TagString: Untagged
@@ -1610,7 +1639,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   platform: {fileID: 4377551503436995288, guid: bbeec988d0f3943bfa4dbbbae310f59d, type: 3}
-  highlight_sound: {fileID: 8300000, guid: 1912bef57594e4caa830b92de8b4158c, type: 3}
 --- !u!82 &1182610420
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1707,6 +1735,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1182610421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1182610414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4d93ba2a616943719b13d1c256248a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isLoop: 0
+  highlight_sound: {fileID: 8300000, guid: 1912bef57594e4caa830b92de8b4158c, type: 3}
 --- !u!1 &1269051041
 GameObject:
   m_ObjectHideFlags: 0
