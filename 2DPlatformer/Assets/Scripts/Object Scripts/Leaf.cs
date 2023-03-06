@@ -8,6 +8,7 @@ public class Leaf : MonoBehaviour
 {
     SpriteRenderer sp;
     Rigidbody2D rg;
+    AudioSource myAudioSource;
     public Sprite activeLeaf;
 
     public float fadingOutSpeed = 1.5f;
@@ -16,6 +17,7 @@ public class Leaf : MonoBehaviour
 
     public GameObject player;
     public GameObject leafPlatform;
+    public AudioClip leafFalling;
     private Vector3 originalLoc;
     BoxCollider2D playerCollider;
 
@@ -38,6 +40,7 @@ public class Leaf : MonoBehaviour
     {
         rg = GetComponent<Rigidbody2D>();
         sp = GetComponent<SpriteRenderer>();
+        myAudioSource = GetComponent<AudioSource>();
         StartCoroutine(RestoringColor(sp));
 
         playerCollider = player.gameObject.GetComponent<BoxCollider2D>();
@@ -116,6 +119,7 @@ public class Leaf : MonoBehaviour
     private IEnumerator LeafFalling()
     {
         yield return new WaitForSeconds(fallingTimer);
+        myAudioSource.PlayOneShot(leafFalling);
         // Destory the box collider
         boxCollider.enabled = false;
         // When reached, start the fading visual effect
