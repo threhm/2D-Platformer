@@ -7242,6 +7242,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 11228075}
+    - target: {fileID: 2551123458162120675, guid: 56c11d04c1b07496ea6acd3bc0de19b1, type: 3}
+      propertyPath: fallingTimer
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 2551123458162120678, guid: 56c11d04c1b07496ea6acd3bc0de19b1, type: 3}
       propertyPath: m_Name
       value: Leaf Platform (31)
