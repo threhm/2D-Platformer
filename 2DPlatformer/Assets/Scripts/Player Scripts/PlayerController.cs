@@ -41,6 +41,7 @@ public class PlayerController : MonoBehaviour
         reverseGrav = false;
         spriteAnim = gameObject.GetComponent<AnimateWalk>();
         source = GetComponent<AudioSource>();
+        source.volume = 0.5f;
     }
 
     // Update is called once per frame

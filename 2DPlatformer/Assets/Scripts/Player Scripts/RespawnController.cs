@@ -22,6 +22,7 @@ public class RespawnController : MonoBehaviour
         bc2D.isTrigger = true;
         isActive = false;
         source = GetComponent<AudioSource>();
+        source.volume = 0.3f;
         
     }
 

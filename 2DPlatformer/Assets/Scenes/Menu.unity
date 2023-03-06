@@ -2281,7 +2281,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isLoop: 1
-  highlight_sound: {fileID: 8300000, guid: edb80b5f297bb4f39b3bd5e65b97744d, type: 3}
+  highlight_sound: {fileID: 8300000, guid: d0bf9041e931e49ea905f7a3d1e083b9, type: 3}
 --- !u!82 &1451999696
 AudioSource:
   m_ObjectHideFlags: 0
@@ -3087,7 +3087,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.54800004, y: 0.55854714}
   m_AnchorMax: {x: 0.6978272, y: 0.70776695}
-  m_AnchoredPosition: {x: 27.000002, y: -7}
+  m_AnchoredPosition: {x: 27, y: -7}
   m_SizeDelta: {x: 37.550003, y: 36.365005}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1924010520

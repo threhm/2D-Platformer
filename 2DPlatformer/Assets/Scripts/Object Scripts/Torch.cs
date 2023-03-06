@@ -9,15 +9,30 @@ public class Torch : MonoBehaviour
     public Sprite[] torchSprites;
     private bool animationBegin = true;
     public float TorchSpeedTimer = 0.1f;
+
+    public AudioClip torchLighting;
+    private AudioSource myAudioSource;
+    public float volume = 0.5f;
+    private bool playSound = true;
+
     // Start is called before the first frame update
     void Start()
     {
         mySpriteRenderer = GetComponent<SpriteRenderer>();
+        myAudioSource = GetComponent<AudioSource>();
+        myAudioSource.volume = volume;
+        myAudioSource.clip = torchLighting;
+        myAudioSource.loop = true;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (OrbsStatus.getStatus("red") && playSound)
+        {
+            playSound = false;
+            myAudioSource.Play();
+        }
         if (OrbsStatus.getStatus("red") && animationBegin)
         {
             animationBegin = false;
